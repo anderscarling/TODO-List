@@ -1,0 +1,9 @@
+%h1
+  Todos for #{@user}
+
+%ul
+  - @todos.each do |todo|
+    %li
+      = todo
+
+= button_to "Logout!", session_path, method: :delete
