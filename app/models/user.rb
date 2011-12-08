@@ -28,7 +28,9 @@ class User < ActiveRecord::Base
     end
 
     # We use this instead of find_or_create in order to get an exception
-    # if save fails..
+    # if save fails.. Calling #save! on a existing record should be no
+    # problem and should cause no extra sql queries since rails knows no
+    # attributes are changed.
     find_or_initialize_by_provider_and_uid(provider, uid).tap { |u| u.save! }
   end
 
