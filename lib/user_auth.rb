@@ -6,8 +6,7 @@ module UserAuth
   end
 
   def current_user
-    # No real need to cache with ||= since we only create the object in memory
-    User.create_from_session(session)
+    @current_user ||= User.find_from_session(session)
   end
 
   def logged_in?
@@ -15,11 +14,17 @@ module UserAuth
   end
 
   def login(user)
-    reset_session # make sure to reset session before login
+    reset_auth! # make sure to reset session before login
     user.store_in_session(session)
   end
 
   def logout
+    reset_auth!
+  end
+
+  private
+  def reset_auth!
+    @current_user = nil
     reset_session
   end
 end

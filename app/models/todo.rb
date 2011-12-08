@@ -1,5 +1,9 @@
 class Todo < ActiveRecord::Base
   ##############################################################################
+  # Associations
+  belongs_to :user
+
+  ##############################################################################
   # Validates
   validates :user_id, presence: true
   validates :note,    presence: true, length: 0..100

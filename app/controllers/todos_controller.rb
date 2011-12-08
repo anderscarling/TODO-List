@@ -7,8 +7,7 @@ class TodosController < AuthenticatedUserController
 
   # Create a new todo for current user
   def create
-    todo         = Todo.new(params[:todo], as: :user)
-    todo.user_id = current_user.id
+    todo = current_user.todos.new(params[:todo], as: :user)
     todo.save ? redirect_to(todos_path) : render_index(todo)
   end
 

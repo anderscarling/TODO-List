@@ -1,9 +1,9 @@
 class CreateTodos < ActiveRecord::Migration
   def change
     create_table :todos do |t|
-      t.string :user_id
-      t.string :note
-      t.boolean :done
+      t.belongs_to :user
+      t.string     :note
+      t.boolean    :done
 
       t.timestamps
     end
