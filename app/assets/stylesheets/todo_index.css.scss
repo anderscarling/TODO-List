@@ -1,0 +1,29 @@
+#todo_index {
+  .errors {
+    width: 50%;
+    margin: 0 auto;
+
+    h3 {
+      color: #ff0000;
+    }
+
+    h3, ul {
+      margin-top:    0.2em;
+      margin-bottom: 0.2em;
+    }
+  }
+
+  form.new_todo {
+    text-align: center;
+
+    label { font-size: 1em; }
+    div.field_with_errors { display: inline; }
+  }
+
+  ul.todos {
+    list-style-type: none;
+    margin:  0 auto;
+    padding: 0;
+    width: 62%;
+  }
+}

@@ -1,4 +1,8 @@
 %h1
   Welcome to TODO List!
+%p
+  TODO List is a simple personal TODO manager..
 
-= button_to "Log in using Google Account", login_path
+-# If the project gets more than one view for logged in and one for logged out
+-# users, we should move this to the layout..
+= button_to "Log in using Google Account", login_path, class: 'auth_button'

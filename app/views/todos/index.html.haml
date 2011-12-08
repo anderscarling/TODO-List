@@ -1,25 +1,27 @@
-%h1 TODOs
+#todo_index
+  %h1 TODOs
 
-%h2 Add new
-- if @todo.errors.present?
-  %h3 Fel uppstod
-  %ul
-    - @todo.errors.full_messages.each do |msg|
-      %li
-        = msg
-= form_for(@todo) do |f|
-  = f.label      :note
-  = f.text_field :note
-  = f.submit
+  %h2 Add new TODO
+  - if @todo.errors.present?
+    .errors
+      %h3 Errors occoured
+      %ul
+        - @todo.errors.full_messages.each do |msg|
+          %li
+            = msg
+  = form_for(@todo) do |f|
+    = f.text_field :note
+    = f.submit
 
-%h2 Your TODOs
+  %h2 Your TODOs
 
-%ul
-  - @todos.each do |todo|
-    %li.todo
-      = form_for(todo, remote: true) do |f|
-        = f.check_box :done, class: 'autosubmit'
-        = f.label     :done, todo.note
+  %ul.todos
+    - @todos.each do |todo|
+      %li.todo
+        = form_for(todo, remote: true) do |f|
+          = f.check_box :done, class: 'autosubmit'
+          = f.label     :done, todo.note
 
-
-= button_to "Logout!", session_path, method: :delete
+  -# If the project gets more than one view for logged in and one for logged out
+  -# users, we should move this to the layout..
+  = button_to "Logout", session_path, method: :delete, class: 'auth_button'
