@@ -1,5 +1,5 @@
 Todolist::Application.routes.draw do
-  resources :todos,   only: [:index]
+  resources :todos,   only: [:index, :update, :create]
   resource  :session, only: [:destroy]
 
   match '/auth/google',             as: :login

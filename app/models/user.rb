@@ -37,4 +37,21 @@ class User < Struct.new(:provider, :uid)
     "#{self.uid} on #{self.provider}"
   end
 
+  ##############################################################################
+  # Object id
+  def id
+    "%s@%s" % [self.uid, self.provider]
+  end
+
+  def ==(other)
+    other.is_a?(User) and self.id == other.id
+  end
+
+
+  ##############################################################################
+  # Relations to Todos
+  def todos
+    Todo.where(user_id: self.id)
+  end
+
 end

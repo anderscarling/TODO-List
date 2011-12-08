@@ -1,9 +1,25 @@
-%h1
-  Todos for #{@user}
+%h1 TODOs
+
+%h2 Add new
+- if @todo.errors.present?
+  %h3 Fel uppstod
+  %ul
+    - @todo.errors.full_messages.each do |msg|
+      %li
+        = msg
+= form_for(@todo) do |f|
+  = f.label      :note
+  = f.text_field :note
+  = f.submit
+
+%h2 Your TODOs
 
 %ul
   - @todos.each do |todo|
-    %li
-      = todo
+    %li.todo
+      = form_for(todo, remote: true) do |f|
+        = f.check_box :done, class: 'autosubmit'
+        = f.label     :done, todo.note
+
 
 = button_to "Logout!", session_path, method: :delete
