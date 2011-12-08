@@ -6,7 +6,7 @@ todo_autosubmit = ->
 
 todo_ajax_success = ->
   li = $(this).closest('li.todo')
-  li.slideUp()
+  li.hide()
 
 todo_ajax_error = ->
   form = $(this)
