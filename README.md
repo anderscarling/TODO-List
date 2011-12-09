@@ -9,4 +9,4 @@ Ett exempel på ett betydligt större projekt jag utvecklat själv är [MindTech
 Applikationen i nuläget är funktionell, men givetvis kan mycket vidareutveckling ske.
 
 ## Kompitabilitet
-Applikationen är utvecklad under Ruby 1.9.3 men bör fungera under Ruby 1.9.2, man måste dock köra med en alterantiv webbserver (t.ex. `unicorn`) i development-miljön. Detta pga att gamla versioner av WEBrick (som används av `rails server`) har en för kort maxlängd på för URIs vilket krånglar med google-konto-inloggning. Detta är [löst](https://github.com/ruby/ruby/commit/a671a06d2574ef888018081ed29bb80851a086f7#lib/webrick/httprequest.rb) i versionen som ingår i Ruby 1.9.3.  
+Applikationen är utvecklad under Ruby 1.9.3 men bör fungera under Ruby 1.9.2, man måste dock köra med en alterantiv webbserver (t.ex. `unicorn`) i development-miljön. Detta pga att gamla versioner av WEBrick (som används av `rails server`) har en för kort maxlängd på URIs vilket krånglar med google-konto-inloggning. Detta är [löst](https://github.com/ruby/ruby/commit/a671a06d2574ef888018081ed29bb80851a086f7#lib/webrick/httprequest.rb) i versionen som ingår i Ruby 1.9.3.  
