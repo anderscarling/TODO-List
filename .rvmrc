@@ -1,2 +1,1 @@
-rvm 1.9.3 use
-rvm gemset use Todolist
+rvm 1.9.3-p0@Todolist use
