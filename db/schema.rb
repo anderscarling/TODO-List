@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111208152608) do
+ActiveRecord::Schema.define(:version => 20120225015450) do
 
   create_table "todos", :force => true do |t|
     t.integer  "user_id"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(:version => 20111208152608) do
     t.boolean  "done"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "available_at"
+    t.datetime "due_at"
+    t.string   "tags"
   end
 
   add_index "todos", ["user_id"], :name => "index_todos_on_user_id"

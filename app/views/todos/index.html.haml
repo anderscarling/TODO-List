@@ -10,7 +10,7 @@
           %li
             = msg
   = form_for(@todo) do |f|
-    = f.text_field :note
+    = f.text_field :note_with_meta
     = f.submit
 
   %h2 Your TODOs
@@ -21,6 +21,12 @@
         = form_for(todo, remote: true) do |f|
           = f.check_box :done, class: 'autosubmit'
           = f.label     :done, todo.note
+          %br/
+          Due: #{todo.due_at}
+          %br/
+          Available: #{todo.available_at}
+          %br/
+          Tags: #{todo.tags.try { |tags| tags.join(", ") }}
 
   -# If the project gets more than one view for logged in and one for logged out
   -# users, we should move this to the layout..
