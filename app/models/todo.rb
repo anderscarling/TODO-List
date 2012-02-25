@@ -55,7 +55,7 @@ class Todo < ActiveRecord::Base
   def times=(ary)
     self.due_at       = Chronic.parse(ary.pop)
     self.available_at = Chronic.parse(ary.pop).try(:to_date)
-    ary.each { |str| self.note += " #{str}" }
+    ary.each { |str| self.note += " @ #{str}" }
   end
 
   def parse_note(str)
